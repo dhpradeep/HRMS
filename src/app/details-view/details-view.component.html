@@ -1,0 +1,22 @@
+<br>
+<a routerLink="/result"><button class="btn btn-primary btn-small">Go Back</button></a>
+<div class="row">
+
+</div>
+<br><b>Quiz Result</b>
+<hr />
+<div class="row">
+  <div class="col col-lg-12" style="height:auto;background:#e3e8ef;margin-bottom:5px;padding: 10px 10px;" *ngFor="let result of data;let i = index;">
+    <div class="title">{{ i + 1 }}. <b>{{result.description}} ?</b></div>
+    <div class="row">
+      <div class="col col-lg-6" *ngFor="let option of result.options | orderBy: ['order'];">
+
+        <div class="input-group-text" style="background:#37e402;margin-bottom:3px;" *ngIf="option.isCorrect==true">
+          <input #this type="checkbox" disabled [checked]="option.order == givenanswerid[i].givenAnswer"/>&nbsp;&nbsp;&nbsp;{{option.optionDisplay}}
+        </div>
+        <div class="input-group-text" [style.background]="option.order == givenanswerid[i].givenAnswer ? 'red':'none'" style="margin-bottom:3px;" *ngIf="option.isCorrect==false">
+          <input #this type="checkbox" disabled [checked]="option.order == givenanswerid[i].givenAnswer" />&nbsp;&nbsp;{{option.optionDisplay}}
+        </div>
+      </div>
+    </div>
+  </div>

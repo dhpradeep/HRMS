@@ -1,0 +1,50 @@
+<div class="row">
+  <div style="background:rgb(209, 208, 208);" class="col col-md-12">
+    <h1>Assessment Details:</h1>
+    <h3>Assessment title goes here</h3>
+    <h6><b>Welcome messsage: <span>Sample welcome message</span></b></h6>
+    <h6><b>Thank you messsage: <span>Sample Thank you message</span></b></h6>
+    <br>
+    <div class="col col-md-6">
+      <div class="float-right">
+        <button *ngIf="!edited" class="btn btn-primary" (click)="EditTable()">Edit</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Display Order</th>
+            <th scope="col">No. of Questions</th>
+            <th scope="col" *ngIf="edit">Delete</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let assessment of assessmentDetails; let i = index;">
+          <tr>
+            <th scope="row">{{ i + 1}}</th>
+            <td>
+              <select *ngIf="edit">
+                <option *ngFor="let cat of allCategory" value="{{cat.id}}">{{cat.name}}</option>
+              </select>
+              <span *ngIf="!edit && assessment.categoryId == allCategory[i].id">{{allCategory[i].name}}</span>
+              <span *ngIf="!edit && assessment.categoryId != allCategory[i].id">{{allCategory[i].name}}</span>
+            </td>
+            <td>
+                <input *ngIf="edit" type="number" value="{{assessment.displayOrder}}" />
+                <span *ngIf="!edit">{{assessment.displayOrder}}</span>
+            </td>
+            <td>
+                <input *ngIf="edit" type="number" value="{{assessment.numberOfQuestions}}" />
+                <span *ngIf="!edit">{{assessment.numberOfQuestions}}</span>
+            </td>
+            <td class="col-sm-3" *ngIf="edit">
+                <button type="button" id="delete" class="btn btn-small btn-danger">X</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button *ngIf="edit" class="float-right btn btn-small btn-primary" (click)="EditTable()">Save</button>
+      <button *ngIf="edit" style="margin-right:10px;" class="float-right btn btn-small btn-success">+</button>
+    </div>
+  </div>
+</div>

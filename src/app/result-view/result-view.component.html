@@ -1,0 +1,22 @@
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">User Id</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Assignment Id</th>
+        <th scope="col">Total Scores</th>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of results; let i=index">
+        <th scope="row" #userId>{{result.userId}}</th>
+        <td>{{result.userName}}</td>
+        <td>{{questionModelTitle[i]}}</td>
+        <td>{{result.totalScore}}</td>
+        <td>
+          <a><button class="btn btn-primary" (click)="navigate(result.userId)">Details</button> </a>
+        </td>
+      </tr>
+    </tbody> 
+  </table>

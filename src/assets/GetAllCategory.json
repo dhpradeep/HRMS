@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "programming",
+        "name": "php",
+        "parentCategoryId": 0
+    },
+    {
+        "id": 2,
+        "title": "programming",
+        "name": "java",
+        "parentCategoryId": 1
+    },
+    {
+        "id": 3,
+        "title": "programming",
+        "name": "html",
+        "parentCategoryId": 2
+    },
+    {
+        "id": 4,
+        "title": "database",
+        "name": "sql",
+        "parentCategoryId": 0
+    }
+]

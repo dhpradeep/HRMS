@@ -1,0 +1,22 @@
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Assessment Purpose</th>
+      <th scope="col">Assessment Type</th>
+      <th scope="col">Assessment Level</th>
+      <th scope="col">#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of data; let i=index">
+      <th scope="row" #userId>{{result.title}}</th>
+      <td>{{result.assessmentPurpose}}</td>
+      <td>{{result.assessmentType}}</td>
+      <td>{{result.assessmentLevel}}</td>
+      <td>
+        <a><button class="btn btn-primary" (click)="navigate(result.id)">Details</button> </a>
+      </td>
+    </tr>
+  </tbody> 
+</table>

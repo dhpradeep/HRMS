@@ -1,0 +1,13 @@
+[
+    {
+       "userType":1,
+       "title":"Title1",
+       "welcomeMessage":"welcometoassignment",
+       "thankyouMessage":"thankyoufromassignment",
+       "assessmentPurpose":1,
+       "assessmentType":1,
+       "assessmentLevel":1,
+       "assignmentGroups":"1",
+       "id":1
+    }
+ ]

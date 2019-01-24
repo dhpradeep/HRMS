@@ -25,4 +25,9 @@ export class GetResultService {
   getQuestionAnswerModel(url:string): Observable<IQuestionModel[]> {
     return this.http.get<IQuestionModel[]>(url);
   }
+
+  deleteAssignment(url:string)
+  {
+    return this.http.delete(url);
+  }
 }

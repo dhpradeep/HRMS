@@ -1,4 +1,3 @@
-[
     {
            "id":6,
            "userId":1,
@@ -29,6 +28,5 @@
                            "givenAnswerId":1,
                            "rightAnswerId":1
                    }
-                   ]
+        ]
     }
-]

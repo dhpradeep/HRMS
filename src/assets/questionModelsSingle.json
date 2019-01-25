@@ -1,13 +1,11 @@
-[
     {
        "userType":1,
-       "title":"Title1",
+       "title":"Title is the title",
        "welcomeMessage":"welcometoassignment",
        "thankyouMessage":"thankyoufromassignment",
        "assessmentPurpose":1,
        "assessmentType":1,
        "assessmentLevel":1,
        "assignmentGroups":"1",
-       "id":1
+       "id":2
     }
- ]

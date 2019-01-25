@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUserResult, IQuestionAnswer } from '../models/UserResultsMode';
+import { IUserResult, IQuestionAnswer,UserResult } from '../models/UserResultsMode';
 import { IQuestionModel } from '../models/QuestionModel'
 import { assignmentDetails,category } from '../models/assignmentDetailsModel';
 
@@ -14,6 +14,10 @@ export class GetResultService {
 
   getAllResult(url:string): Observable<IUserResult[]> {
     return this.http.get<IUserResult[]>(url);
+  }
+  getResult(url:string): Observable<UserResult[]>
+  {
+    return this.http.get<UserResult[]>(url);
   }
   getAllCategory(url:string): Observable<category[]> {
     return this.http.get<category[]>(url);

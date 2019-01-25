@@ -26,9 +26,6 @@
           <tr>
             <th scope="row">{{ i + 1}}</th>
             <td>
-              <select *ngIf="edit">
-                <option *ngFor="let cat of allCategory" value="{{cat.id}}">{{cat.name}}</option>
-              </select>
               <span *ngIf="!edit && assessment.categoryId == allCategory[i].id">{{allCategory[i].name}}</span>
               <span *ngIf="!edit && assessment.categoryId != allCategory[i].id">{{allCategory[i].name}}</span>
             </td>

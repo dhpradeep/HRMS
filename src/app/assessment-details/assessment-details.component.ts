@@ -48,25 +48,26 @@ export class AssessmentDetailsComponent implements OnInit {
 
   getDetails(assessment: number) {
     //call services from here...
-    this.resultService.getAllCategory('../assets/GetAllCategory.json').subscribe(
+    this.resultService.getAllCategory('http://localhost:51384/api/QuestionCategory').subscribe(
       data => {
+        // this.allCategory.push(data);
+        // console.log(this.allCategory);
        data.forEach(obj => {
-          this.allCategory.push(obj.title);
-          console.log(obj.title);
+          this.allCategory.push(obj);
        });
       },
       (error) => {
         console.log(error);
       });
 
-    this.resultService.getAllResult('../assets/questionModel.json').subscribe(
+    this.resultService.getAllResult('http://localhost:51384/api/QuestionModel/'+assessment).subscribe(
       data => {
         // console.log(data);
       });
 
-    this.resultService.getAllResult('../assets/assessmentDetails.json').subscribe(
+    this.resultService.getAllResult('http://localhost:51384/api/AssignmentDetail/'+assessment).subscribe(
       data => {
-        //console.log(data);
+        // console.log(data);
         this.assessmentDetails = data;
       });
   }
@@ -83,13 +84,10 @@ export class AssessmentDetailsComponent implements OnInit {
 
   deleteAssignmentDetails(id:number,index:number)
   {
-    this.assessmentDetails.splice(index, 1);
-
-    let url = 'localhost:4201/api/category/';
-    url = url + id;
-    let result = this.resultService.deleteAssignment(url);
+    let url = 'http://localhost:51384/api/AssignmentDetail/'+id;
     console.log(url);
-    console.log(result);
+    this.resultService.deleteAssignment(url);
+    this.assessmentDetails.splice(index, 1);
   }
 
   save(form: any) {

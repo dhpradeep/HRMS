@@ -7,11 +7,21 @@ export interface assessmentDetail {
 }
 
 export interface IUserResult {
+    id:number,
     userId:number,
     userName:string,
     assignmentId:number,
     totalScore:number,
     assessmentDetail: any[]
+}
+
+export class UserResult {
+    id:number;
+    userId:number;
+    userName:string;
+    assignmentId:number;
+    totalScore:number;
+    assessmentDetail: any[];
 }
 
 export interface IQuestionAnswer {

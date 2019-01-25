@@ -18,7 +18,7 @@ export class AssessmentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.resultService.getAllResult('../assets/questionModels.json').subscribe(
+    this.resultService.getAllResult('http://localhost:51384/api/QuestionModel').subscribe(
       (data) => {
         this.data = data;
       });

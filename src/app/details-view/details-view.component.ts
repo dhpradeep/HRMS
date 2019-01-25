@@ -11,7 +11,7 @@ import { QuestionAnswer } from '../models/QuestionAnswerModel';
 })
 export class DetailsViewComponent implements OnInit {
 
-  details = []; // it has id
+  details:number; // it has id
   data = [];
   givenanswerid = [];
   rightanswerid = [];
@@ -35,7 +35,7 @@ export class DetailsViewComponent implements OnInit {
     if(user.length === 1)
     {
       //call services from here...
-      this.resultService.getAllResult('../assets/UserDetail.json').subscribe(
+      this.resultService.getAllResult('http://localhost:51384/api/AssessmentDetail/'+user).subscribe(
         data => {
           //console.log(data);
          data.forEach(obj => {
@@ -60,7 +60,6 @@ export class DetailsViewComponent implements OnInit {
     }
     this.givenanswerid.push(givenAnswer);
     this.rightanswerid.push(rightAnswer);
-    console.log(this.rightanswerid);
     this.resultService.getQuestionAnswer('../assets/QuestionAnswer.json').subscribe(
       (data) => {
         this.data.push(data);

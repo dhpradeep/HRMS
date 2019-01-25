@@ -27,17 +27,15 @@ export class ResultViewComponent implements OnInit {
   }
 
   loadResult() {
-   this.resultService.getAllResult('../assets/UserDetails.json').subscribe(
+   this.resultService.getAllResult('http://localhost:51384/api/AssessmentDetail').subscribe(
       (data) => {
         this.results = data;
         data.forEach(obj =>{
           var modelId = obj.assignmentId;
-          this.resultService.getAllModels('../assets/questionModelsSingle.json').subscribe(
+          this.resultService.getAllModels('http://localhost:51384/api/QuestionModel/'+Number(modelId)+'/AssignmentDetail').subscribe(
             (data) => {
-               data.forEach(obj => {
-                 this.questionModelTitle.push(obj.title);
-               })
-             },
+                this.questionModelTitle.push((this.findTitleById(data,modelId)));
+             }, 
              (error) =>{
               console.log(error);
              }
@@ -47,6 +45,14 @@ export class ResultViewComponent implements OnInit {
     ) 
     
     this.getResult();
+  }
+
+  findTitleById(data,modelId)
+  {
+      if(data.id === modelId){
+          return data.title;
+    }
+    return "";
   }
 
   getResult() {

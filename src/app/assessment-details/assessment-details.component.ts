@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GetResultService } from '../services/get-result.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 import { assignmentDetails  } from '../models/assignmentDetailsModel'
 
@@ -17,8 +18,10 @@ export class AssessmentDetailsComponent implements OnInit {
   public edited: boolean = false;
   assessmentDetails = [];
   allCategory = [];
+  editDetails: assignmentDetails = new assignmentDetails();
 
-  assignmentDetails: FormGroup;
+  // assignment
+  assignment: assignmentDetails = new assignmentDetails();
 
   // dynamically add row
   private fieldArray: Array<any> = [];
@@ -34,26 +37,26 @@ export class AssessmentDetailsComponent implements OnInit {
 
   constructor(
     private resultService: GetResultService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
     this.route.params.subscribe(params => this.assessmentId = params.id)
   }
 
   ngOnInit() {
     this.getDetails(this.assessmentId);
-
-    this.assignmentDetails = new FormGroup({
-      categoryId: new FormControl(),
-      DisplayOrder: new FormControl(),
-      numberOfQuestions: new FormControl()
-    });
   }
 
   getDetails(assessment: number) {
     //call services from here...
-    this.resultService.getAllResult('../assets/GetAllCategory.json').subscribe(
+    this.resultService.getAllCategory('../assets/GetAllCategory.json').subscribe(
       data => {
-        this.allCategory = data;
-        // console.table(this.allCategory);
+       data.forEach(obj => {
+          this.allCategory.push(obj.title);
+          console.log(obj.title);
+       });
+      },
+      (error) => {
+        console.log(error);
       });
 
     this.resultService.getAllResult('../assets/questionModel.json').subscribe(
@@ -68,13 +71,20 @@ export class AssessmentDetailsComponent implements OnInit {
       });
   }
 
-  EditTable() {
-    this.edit = !this.edit;
-    this.edited = !this.edited;
+  EditTable(id:number,catId:number,displayOrder:number,noofqstn:number) {
+    //this.edit = !this.edit;
+    //this.edited = !this.edited;
+    this.editDetails.id = id;
+    this.editDetails.categoryId = catId;
+    this.editDetails.displayOrder = displayOrder;
+    this.editDetails.numberOfQuestions = noofqstn
+    console.log(this.editDetails);
   }
 
-  deleteAssignmentDetails(id:number)
+  deleteAssignmentDetails(id:number,index:number)
   {
+    this.assessmentDetails.splice(index, 1);
+
     let url = 'localhost:4201/api/category/';
     url = url + id;
     let result = this.resultService.deleteAssignment(url);
@@ -82,7 +92,17 @@ export class AssessmentDetailsComponent implements OnInit {
     console.log(result);
   }
 
-  onSubmit(): void {
-    console.log(this.assignmentDetails.value);
+  save(form: any) {
+    // this.resultService.save(form).subscribe(
+    //   result => {
+    //     this.gotoList();
+    //   },
+    //   error => console.error(error)
+    // );
+    console.log(form);
+  }
+
+  gotoList() {
+    this.router.navigate(['/assessment/details/',this.assessmentId]);
   }
 }

@@ -15,7 +15,7 @@ import { OrderByPipe } from './pipes/OrderBy';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AssessmentDetailsComponent } from './assessment-details/assessment-details.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   providers: [GetResultService],
   bootstrap: [AppComponent]

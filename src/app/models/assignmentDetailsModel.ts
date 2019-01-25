@@ -1,9 +1,13 @@
-import { Identifiers } from '@angular/compiler';
-
 export class assignmentDetails {
-    constructor(
-        public categoryId:number,
-        public DisplayOrder:number,
-        public numberOfQuestions:number
-    ) {}
+        id: number;
+        categoryId: number;
+        displayOrder: number;
+        numberOfQuestions: number;
+}
+
+export class category {
+        id:number;
+        title:string;
+        name:string;
+        parentCategoryId:string;
 }

@@ -7,6 +7,10 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { DetailsViewComponent } from './details-view/details-view.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AssessmentDetailsComponent } from './assessment-details/assessment-details.component';
+import { getPluralCategory } from '@angular/common/src/i18n/localization';
+import { CategoryComponent } from './category/category.component';
+import { QuestionModelComponent } from './question-model/question-model.component';
+import { MaintainQuestionComponent } from './maintain-question/maintain-question.component';
 
 const routes: Routes = [
   {path: "", component: HomepageComponent},
@@ -14,6 +18,9 @@ const routes: Routes = [
   {path: "result/details/:id", component: DetailsViewComponent},
   {path: "assessment", component: AssessmentComponent},
   {path: "assessment/details/:id", component: AssessmentDetailsComponent},
+  {path: "category", component: CategoryComponent},
+  {path: "question-model", component: QuestionModelComponent},
+  {path: "maintain-question", component: MaintainQuestionComponent},
   {path: "**", component: ErrorComponent}
 ];
 

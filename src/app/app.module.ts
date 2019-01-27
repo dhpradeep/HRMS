@@ -14,6 +14,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrderByPipe } from './pipes/OrderBy';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AssessmentDetailsComponent } from './assessment-details/assessment-details.component';
+import { CategoryComponent } from './category/category.component';
+import { QuestionModelComponent } from './question-model/question-model.component';
+import { MaintainQuestionComponent } from './maintain-question/maintain-question.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { AssessmentDetailsComponent } from './assessment-details/assessment-deta
     DetailsViewComponent,
     OrderByPipe,
     AssessmentComponent,
-    AssessmentDetailsComponent
+    AssessmentDetailsComponent,
+    CategoryComponent,
+    QuestionModelComponent,
+    MaintainQuestionComponent
   ],
   imports: [
     BrowserModule,

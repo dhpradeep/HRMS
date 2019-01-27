@@ -17,6 +17,9 @@ import { AssessmentDetailsComponent } from './assessment-details/assessment-deta
 
 import { FormsModule } from '@angular/forms';
 import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
+import { CategoryComponent } from './category/category.component';
+import { MaintainQuestionComponent } from './maintain-question/maintain-question.component';
+import { QuestionModelComponent } from './question-model/question-model.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { AddAssignmentComponent } from './add-assignment/add-assignment.componen
     OrderByPipe,
     AssessmentComponent,
     AssessmentDetailsComponent,
-    AddAssignmentComponent
+    AddAssignmentComponent,
+    CategoryComponent,
+    MaintainQuestionComponent,
+    QuestionModelComponent
   ],
   imports: [
     BrowserModule,

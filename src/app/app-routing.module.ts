@@ -7,6 +7,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { DetailsViewComponent } from './details-view/details-view.component';
 import { AssessmentComponent } from './assessment/assessment.component';
 import { AssessmentDetailsComponent } from './assessment-details/assessment-details.component';
+import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
 
 const routes: Routes = [
   {path: "", component: HomepageComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "result/details/:id", component: DetailsViewComponent},
   {path: "assessment", component: AssessmentComponent},
   {path: "assessment/details/:id", component: AssessmentDetailsComponent},
+  {path: "assessment/create", component: AddAssignmentComponent},
   {path: "**", component: ErrorComponent}
 ];
 

@@ -3,6 +3,7 @@ export class assignmentDetails {
         categoryId: number;
         displayOrder: number;
         numberOfQuestions: number;
+        assignmentId:number;
 }
 
 export class category {

@@ -26,9 +26,8 @@
           <tr>
             <th scope="row">{{ i + 1}}</th>
             <td>
-              <span *ngIf="!edit && assessment.categoryId == allCategory[i].id">{{allCategory[i].name}}</span>
-              <span *ngIf="!edit && assessment.categoryId != allCategory[i].id">{{allCategory[i].name}}</span>
-            </td>
+              <span>{{assessment.categoryId}}</span>
+              </td>
             <td>
               <input *ngIf="edit" type="number" value="{{assessment.displayOrder}}" />
               <span *ngIf="!edit">{{assessment.displayOrder}}</span>
@@ -61,13 +60,12 @@
       </div>
       <div class="modal-body">
 
-
         <form #assignmentForm="ngForm" (ngSubmit)="save(assignmentForm.value)">
           <label class="my-1 mr-2" for="cat">Category</label>
           <select class="custom-select my-1 mr-sm-2" id="cat" required [(ngModel)]="assignment.categoryId" name="categoryId">
             <option *ngFor="let cat of allCategory" value="{{cat.id}}">{{cat.name}}</option>
           </select>
-          <input type="hidden" name="id" [(ngModel)]="assignment.id">
+          <!-- <input type="hidden" name="id" [(ngModel)]="assignment.id"> -->
           <div class="form-group">
             <label for="displayOrder">Display Order</label>
             <input type="number" [(ngModel)]="assignment.displayOrder" required name="displayOrder" class="form-control"
@@ -99,7 +97,6 @@
 
         <form #editForm="ngForm" (ngSubmit)="save(editForm.value)">
           <label class="my-1 mr-2" for="cat">Category</label>
-          {{editDetails.categoryId}}
           <select class="custom-select my-1 mr-sm-2" id="category" required [(ngModel)]="editDetails.categoryId" name="categoryId">
             <option *ngFor="let cat of allCategory" [selected]="cat.id === editDetails.categoryId" value="{{cat.id}}">{{cat.name}}</option>
           </select>

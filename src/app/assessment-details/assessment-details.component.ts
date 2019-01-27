@@ -19,6 +19,7 @@ export class AssessmentDetailsComponent implements OnInit {
   assessmentDetails = [];
   allCategory = [];
   editDetails: assignmentDetails = new assignmentDetails();
+  selectedCategory = [];
 
   // assignment
   assignment: assignmentDetails = new assignmentDetails();
@@ -50,10 +51,9 @@ export class AssessmentDetailsComponent implements OnInit {
     //call services from here...
     this.resultService.getAllCategory('http://localhost:51384/api/QuestionCategory').subscribe(
       data => {
-        // this.allCategory.push(data);
-        // console.log(this.allCategory);
        data.forEach(obj => {
           this.allCategory.push(obj);
+          this.findCategoryName(this.allCategory);
        });
       },
       (error) => {
@@ -65,11 +65,17 @@ export class AssessmentDetailsComponent implements OnInit {
         // console.log(data);
       });
 
-    this.resultService.getAllResult('http://localhost:51384/api/AssignmentDetail/'+assessment).subscribe(
+    this.resultService.getAssessmentDetails('http://localhost:51384/api/AssignmentDetail/'+assessment).subscribe(
       data => {
-        // console.log(data);
         this.assessmentDetails = data;
       });
+  }
+
+  findCategoryName(allCategory)
+  {
+    // let data = [];
+    // data.push(allCategory);
+    // console.log(data);
   }
 
   EditTable(id:number,catId:number,displayOrder:number,noofqstn:number) {
@@ -86,17 +92,18 @@ export class AssessmentDetailsComponent implements OnInit {
   {
     let url = 'http://localhost:51384/api/AssignmentDetail/'+id;
     console.log(url);
-    this.resultService.deleteAssignment(url);
+    let result = this.resultService.deleteAssignment(url);
+    console.log(result)
     this.assessmentDetails.splice(index, 1);
   }
 
   save(form: any) {
-    // this.resultService.save(form).subscribe(
-    //   result => {
-    //     this.gotoList();
-    //   },
-    //   error => console.error(error)
-    // );
+    this.resultService.save('http://localhost:51384/api/AssignmentDetail/',form).subscribe(
+      result => {
+        this.gotoList();
+      },
+      error => console.error(error)
+    );
     console.log(form);
   }
 

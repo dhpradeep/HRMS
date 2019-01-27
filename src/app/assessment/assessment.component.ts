@@ -24,8 +24,14 @@ export class AssessmentComponent implements OnInit {
       });
   }
 
-  navigate(id:Number)
+  navigate(url:string, id?:number)
   {
-    this.router.navigate(['./assessment/details/'+id]);
+    if(id)
+    {
+    this.router.navigate([url+id]);
+  }else{
+    this.router.navigate([url]);
+  }
+
   }
 }

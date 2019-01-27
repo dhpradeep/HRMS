@@ -16,6 +16,7 @@ import { AssessmentComponent } from './assessment/assessment.component';
 import { AssessmentDetailsComponent } from './assessment-details/assessment-details.component';
 
 import { FormsModule } from '@angular/forms';
+import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     DetailsViewComponent,
     OrderByPipe,
     AssessmentComponent,
-    AssessmentDetailsComponent
+    AssessmentDetailsComponent,
+    AddAssignmentComponent
   ],
   imports: [
     BrowserModule,

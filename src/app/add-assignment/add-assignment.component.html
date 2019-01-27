@@ -1,0 +1,65 @@
+<div class="row"><br><br>
+  <form #addassignment="ngForm" (ngSubmit)="save(addassignment.value)">
+    <div class="form-row">
+      <div class="col col-md-6 form-group">
+        <label for="title">Assignment Title</label>
+        <input type="text" name="title" id="title" class="form-control">
+      </div>
+      <div class="col col-md-6 form-group">
+        <label for="assignmentPurpose">Assignment Purpose Id</label>
+        <input type="text" name="assignmentPurpose" id="assignmentPurpose" class="form-control">
+      </div>
+      <div class="col col-md-6 form-group">
+        <label for="assignmentType">Assignment Level Id</label>
+        <input type="text" name="assignmentType" id="assignmentType" class="form-control">
+      </div>
+      <div class="col col-md-6 form-group">
+        <label for="assignmentLevel">Assignment Level Id</label>
+        <input type="text" name="assignmentLevel" id="assignmentLevel" class="form-control">
+      </div>
+
+      <!-- fields for assignment details -->
+      <div class="col col-md-12">
+        <div class="row">
+          <div class="col col-md-10">Assignment Details:</div>
+          <div class="col col-md-2"><button class="btn btn-success btn-round">+</button></div>
+        </div>
+      </div><br><br>
+
+      <div class="col col-md-12">
+        <div class="row">
+          <div class="col col-md-4">Category Id</div>
+          <div class="col col-md-4">Display Order</div>
+          <div class="col col-md-4">No. of questions</div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <div class="input-group-append">
+          <button class="btn btn-danger btn-small" type="button">-</button>
+        </div>
+      </div><br><br>
+
+      <div class="col col-md-6 form-group">
+        <label for="welcomeMessage">Welcome Message</label>
+        <textarea class="form-control" name="welcomeMessage" id="welcomeMessage" cols="10" rows="5"></textarea>
+      </div>
+      <div class="col col-md-6 form-group">
+        <label for="thankYou">Thank you Message</label>
+        <textarea class="form-control" name="thankYou" id="thankYou" cols="10" rows="5"></textarea>
+      </div>
+      <div class="col col-md-6 form-group">
+        <label for="rules">Rules and Policies</label>
+        <textarea class="form-control" name="rules" id="rules" cols="10" rows="5"></textarea>
+      </div>
+      <div class="col col-md-6 form-group"></div>
+
+      <div class="col form-group">
+        <button type="submit" class="btn btn-success">Add Assignement</button>
+      </div>
+    </div>
+  </form>
+</div>
